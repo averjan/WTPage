@@ -1,0 +1,29 @@
+.main-back {
+    background-size: 100% 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back1.jpg") no-repeat;
+    color: white;
+}
+
+.wrapper {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.bgded {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size:  cover;
+    -o-background-size: cover;
+}
+
+.overlay {
+    color: #FFF;
+    background-color: inherit;
+}
+
