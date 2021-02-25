@@ -6,7 +6,8 @@ body
 }
 .topnav {
     background-color: #333;
-    display: block;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
     position: relative;
     width: 100%;
