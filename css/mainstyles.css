@@ -1,4 +1,8 @@
-
+html, body
+{
+    height: 100%;
+    margin: 0;
+}
 
 .main-back {
     background-size: 100% 100%;
@@ -27,4 +31,9 @@
 .overlay {
     color: #FFF;
     background-color: inherit;
+}
+
+.button {
+    cursor: pointer;
+    color: white;
 }

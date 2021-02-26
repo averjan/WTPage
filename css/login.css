@@ -21,6 +21,10 @@ html, body {
     height: 300px;
 }
 
+.login-back a {
+    color: darkgoldenrod;
+    text-decoration: none;
+}
 .login-btn
 {
     width: 100%;
@@ -30,6 +34,10 @@ html, body {
     border-radius: 4px;
     border: 1px solid darkgoldenrod;
 }
+
+.login-btn:hover {
+    background-color: #725409;
+    border: #725409;
 }
 .login-intro
 {
