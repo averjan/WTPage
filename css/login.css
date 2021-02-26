@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.login-back {
+    background-size: 100% 100%;
+    color: white;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/login.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    position: relative;
+    top: 20%;
+    width: 300px;
+    height: 300px;
+}
+
+.login-btn
+{
+    width: 100%;
+    display: block;
+    background-color: darkgoldenrod;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid darkgoldenrod;
+}
+}
+.login-intro
+{
+
+}
+input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.3);
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+
+form
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

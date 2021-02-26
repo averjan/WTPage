@@ -1,3 +1,5 @@
+
+
 .main-back {
     background-size: 100% 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back1.jpg") no-repeat;
@@ -26,27 +28,3 @@
     color: #FFF;
     background-color: inherit;
 }
-
-
-.social-footer {
-    padding: 1rem;
-    background: #8a8a8a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.social-footer .social-footer-icons li:last-of-type {
-    margin-right: 0;
-}
-
-.social-footer .social-footer-icons .fa {
-    font-size: 1.3rem;
-    color: #fefefe;
-}
-
-.social-footer .social-footer-icons .fa:hover {
-    color: #4a4a4a;
-    transition: color 0.3s ease-in;
-}
-

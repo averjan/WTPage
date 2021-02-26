@@ -1,0 +1,23 @@
+.social-footer {
+    padding: 1rem;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 0;
+}
+
+.social-footer .social-footer-icons li:last-of-type {
+    margin-right: 0;
+}
+
+.social-footer .social-footer-icons .fa {
+    font-size: 1.3rem;
+    color: darkgoldenrod;
+}
+
+.social-footer .social-footer-icons .fa:hover {
+    color: #4a4a4a;
+    transition: color 0.3s ease-in;
+}
+
