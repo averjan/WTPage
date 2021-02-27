@@ -1,0 +1,53 @@
+.item-content {
+    width: 100%;
+    display: flex;
+    background: white;
+    margin: 20px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}
+
+.item-tag {
+    display: inline;
+}
+
+.contain {
+    width: 100%;
+    padding: 20px;
+}
+
+.item-head {
+    width: 100%;
+}
+
+.item-pict {
+    width: 100%;
+}
+
+.recipe {
+    width: 100%;
+}
+
+.ingredient-tables {
+
+}
+
+.ingredient-tables td {
+    border-top: 1px solid #e5e5e5;
+    vertical-align: baseline;
+}
+
+.ingredient-tables .name a {
+    padding: 8px 0px;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 334px;
+    padding-right: 30px;
+}
+
+.ingredient-tables .name a:hover {
+    background: darkgoldenrod;
+    border-radius: 10px;
+}

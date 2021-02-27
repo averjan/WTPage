@@ -48,7 +48,7 @@
 }
 
 .search-back {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back3.jpg") center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back3.jpg") center repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
