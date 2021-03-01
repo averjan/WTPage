@@ -17,3 +17,8 @@
 html {
     font-family: PT Sans, Arial, Tahoma, sans-serif;
 }
+
+.text-about {
+    font-size: 18px;
+    line-height: 30px;
+}
