@@ -71,3 +71,13 @@
     align-items: center;
     transition: opacity .2s, visibility .2s;
 }
+
+@media (max-width: 850px) {
+    .lines {
+        flex-wrap: wrap;
+    }
+    .column {
+        max-width: 100%;
+        flex: 100%;
+    }
+}

@@ -11,8 +11,18 @@ body
     overflow: hidden;
     position: relative;
     width: 100%;
+    align-items: center;
+    height: 48px;
 }
 
+.central-nav-panel {
+    display: flex;
+    align-items: center;
+}
+
+#this-logo {
+    padding: 14px 16px;
+}
 .to-login
 {
     border-radius: 22px;
@@ -52,4 +62,118 @@ body
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.global-search {
+    float: left;
+    width: 250px;
+    align-items: center;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.global-search input {
+    border-radius: 30px;
+    height: 30px;
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    justify-self: left;
+    left: 0;
+    padding: 14px 16px;
+    position: absolute;
+}
+
+.search-btn {
+    display: none;
+    color: white;
+    justify-self: right;
+    right: 0;
+    padding: 14px 16px;
+    position: absolute;
+}
+
+#myLinks {
+    color: black;
+    background-color: black;
+}
+
+#myLinks a{
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    color: white;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.responsive {
+    display: block;
+}
+.responsive a{
+    display: block;
+    text-align: left;
+}
+
+@media (min-width: 850px) {
+    #myLinks {
+        display: none;
+    }
+
+    #center-nav {
+        display: flex;
+    }
+
+    #this-logo {
+        display: block;
+    }
+
+    .central-nav-panel {
+        display: flex;
+    }
+}
+@media (max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .search-btn {
+        display: block;
+    }
+
+    #myLinks {
+    }
+
+    #myLinks a {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .central-nav-panel {
+        display: none;
+    }
+
+    .show-search {
+        display: flex;
+    }
+
+    .hide-logo {
+        display: none;
+    }
+
+    .topnav {
+
+    }
 }

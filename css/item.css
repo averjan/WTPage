@@ -121,3 +121,21 @@
     border-top: 2px solid lightgray;
     padding: 20px;
 }
+
+@media (max-width: 850px) {
+    .item-content {
+        margin: 20px 0px 20px 0px;
+    }
+
+    #main {
+        width: 100%;
+    }
+
+    .ingredient-tables .name a {
+        width: 100%;
+    }
+
+    .ingredient-tables {
+        width: 100%;
+    }
+}

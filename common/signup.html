@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/mainstyles.css">
     <link rel="stylesheet" href="../css/navbar.css">
@@ -10,24 +10,45 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" async="" src="../js/nav-bar.js"></script>
 </head>
 <body>
+<!-- Navigation bar -->
 <nav>
     <div class="topnav wrapper">
-        <div>
-
+        <!-- Menu button -->
+        <a class="menu-btn" onclick="myFunction()">
+            <i class="fa fa-bars">
+            </i>
+        </a>
+        <!-- Logotype -->
+        <div id="this-logo" class="logotype">
+            <a href="../index.html">El Gusto</a>
         </div>
-        <div>
+        <div id="center-nav" class="central-nav-panel">
             <a class="active links" href="../index.html">Home</a>
-            <a class="links" href="news.html">News</a>
             <a class="links" href="cocktails.html">Cocktails</a>
             <a class="links" href="ingredients.html">Ingredients</a>
+            <div class="global-search">
+                <input class="global-search" placeholder="Search">
+            </div>
         </div>
         <div class="nav-right">
             <a class="to-login" href="login.html">Sign In</a>
         </div>
+
+        <a class="search-btn" onclick="showSearch()">
+            <i class="fa fa-search"></i>
+        </a>
+    </div>
+    <!-- Hamburger menu -->
+    <div id="myLinks" class="sub-menu">
+        <a href="../index.html" style="color: darkgoldenrod">Home</a>
+        <a href="cocktails.html">Cocktails</a>
+        <a href="ingredients.html">Ingredients</a>
     </div>
 </nav>
+
 
 <div class="login-back">
     <div class="login">
