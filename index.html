@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/mainstyles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/choose-menu.css">
+    <link rel="stylesheet" href="css/text-styles.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Roboto&display=swap');
+    </style>
+
+    <script type="text/javascript" async="" src="js/nav-bar.js"></script>
+</head>
+<body>
+
+<div class="all-content">
+<!-- Navigation bar -->
+<nav>
+    <div class="topnav wrapper">
+        <!-- Menu button -->
+        <a class="menu-btn" onclick="myFunction()">
+            <i class="fa fa-bars">
+            </i>
+        </a>
+        <!-- Logotype -->
+        <div id="this-logo" class="logotype">
+            <a href="index.html" class="main-logo"><em style="color:darkgoldenrod;">El</em> Gusto</a>
+        </div>
+        <div id="center-nav" class="central-nav-panel">
+            <a class="active links" href="index.html">Home</a>
+            <a class="links" href="common/cocktails.html">Cocktails</a>
+            <a class="links" href="common/ingredients.html">Ingredients</a>
+            <div class="global-search">
+                <input class="global-search" placeholder="Search">
+            </div>
+        </div>
+        <div class="nav-right">
+            <a class="to-login" href="common/login.html">Sign In</a>
+        </div>
+
+        <a class="search-btn" onclick="showSearch()">
+            <i class="fa fa-search"></i>
+        </a>
+    </div>
+    <!-- Hamburger menu -->
+    <div id="myLinks" class="sub-menu">
+        <a href="index.html" style="color: darkgoldenrod">Home</a>
+        <a href="common/cocktails.html">Cocktails</a>
+        <a href="common/ingredients.html">Ingredients</a>
+        <a href="common/login.html" style="border-top: 1px solid white">Sign In</a>
+    </div>
+</nav>
+
+<!-- Body part -->
+<div class="main-back wrapper bgded overlay">
+    <article class="page-intro">
+        <p class="heading">
+            Welcome
+        </p>
+    </article>
+    <div class="preview-text">
+        <p>
+            A platform for creating and sharing unforgettable combinations for every connoisseur
+        </p>
+        <div>
+            <a href="common/signup.html">Create an account</a>
+        </div>
+
+    </div>
+    <div class="lines">
+        <div class="column category cut-img">
+            <img src="img/cocktail.jpg" alt="Cocktails">
+            <a class="img-text" href="common/cocktails.html">
+                <p>
+                    Cocktails
+                </p>
+            </a>
+        </div>
+        <div class="column category cut-img">
+            <img src="img/ingredient.jpg" alt="Ingredients">
+            <a class="img-text" href="common/ingredients.html">
+                <p>
+                    Ingredients
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div>
+
+    </div>
+</section>
+</div>
+<footer class="social-footer">
+    <div class="social-footer-left">
+        <a href="index.html" class="main-logo"><em style="color:darkgoldenrod;">El</em> Gusto</a>
+    </div>
+
+    <div class="social-footer-center">
+        <a href="#about">About</a>
+    </div>
+
+    <div class="social-footer-icons">
+        <ul class="menu simple">
+            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

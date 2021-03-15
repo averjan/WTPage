@@ -1,0 +1,24 @@
+@font-face { font-family: oi-regular; src: url('../fonts/Oi/Oi-regular.ttf'); }
+
+.heading
+{
+    margin-bottom: 20px;
+    font-size: 4rem;
+}
+
+html {
+    font-family: PT Sans, Arial, Tahoma, sans-serif;
+}
+
+.text-about {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+
+.main-logo {
+    font-size: 36px;
+    text-decoration: none;
+    font-family: Lobster;
+    color: white;
+}

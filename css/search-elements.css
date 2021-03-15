@@ -1,0 +1,157 @@
+.search-form {
+    padding: 12px 0;
+    background-color: white;
+}
+
+.search-input {
+    margin-bottom: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background: white;
+    padding: 4px 16px;
+    box-sizing: border-box;
+    font-size: 30px;
+    width: 100%;
+}
+
+.search-form-content {
+    padding: 0px 20px;
+}
+
+.filters {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: flex-start;
+    padding-right: 70%;
+    justify-content: space-between;
+}
+
+.filters select
+{
+    width: 100px;
+}
+
+.filter-select {
+    flex-grow: 1;
+    flex-basis: 200px;
+    position: relative;
+    padding: 0 34px 0 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+}
+
+.search-back {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back3.jpg") center repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100%
+}
+
+.search-result {
+    margin: 20px 0;
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+}
+
+#main {
+    width: 80%;
+}
+
+/*
+.cocktail-grid {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: white;
+} */
+
+.cocktail-grid {
+    padding-top: 20px;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: white;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1170px) {
+    .cocktail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    #main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    .cocktail-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.cocktail-item-preview {
+    border: 1px solid darkgoldenrod;
+    border-radius: 15px;
+    width: 200px;
+    height: 100%;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cocktail-item-image {
+    display: block;
+    max-width: 200px;
+    max-height: 310px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 6px;
+}
+
+.cocktail-item-name {
+    height: 90px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    font-size: 18px;
+    font-style: italic;
+    color: black;
+
+}
+
+.cocktail-item {
+    padding-top: 10px;
+    margin: 10px;
+    justify-self: center;
+}
+
+.common-more {
+    background-color: white;
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.common-more:hover {
+    background-color: darkgoldenrod;
+}
+

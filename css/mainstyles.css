@@ -1,0 +1,89 @@
+html, body
+{
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.all-content {
+    flex: 1;
+}
+
+@media (max-width: 850px)
+{
+    .all-content {
+        height: auto;
+    }
+}
+.main-back {
+    background-size: 100% 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/back1.jpg") no-repeat;
+    color: white;
+    height: 100%;
+}
+
+.preview-text {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.preview-text p{
+    text-align: center;
+    width: 60%;
+}
+
+.preview-text div {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.preview-text div a{
+    justify-self: center;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    padding: 7px;
+}
+
+.preview-text div a:hover {
+    color: black;
+    background-color: white;
+}
+
+.wrapper {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.bgded {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size:  cover;
+    -o-background-size: cover;
+}
+
+.overlay {
+    color: #FFF;
+    background-color: inherit;
+}
+
+.button {
+    cursor: pointer;
+    color: white;
+}

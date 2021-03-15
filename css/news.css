@@ -1,0 +1,31 @@
+.news-cover
+{
+    background-image: url("../img/cocktails/WhiteRussian.jpg");
+    flex-grow: 1;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.article
+{
+    font-size: 16px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    justify-content: flex-end;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    height: 300px;
+    display: flex;
+}
+
+.news-content
+{
+    background: white;
+    width: 100%;
+}
+
+.title {
+
+}
