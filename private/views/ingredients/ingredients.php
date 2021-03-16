@@ -23,6 +23,6 @@ $main_template = str_replace("{sub-navbar}",
     file_get_contents(root . "/common/sub-navbar.html"),
     $main_template);
 
-$temp = 12;
-echo $main_template;
-// include "ingredients.html";
+// echo $main_template;
+include "item/icon-cocktail.php";
+include "ingredients.html";
