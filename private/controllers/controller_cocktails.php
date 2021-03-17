@@ -12,7 +12,6 @@ class controller_cocktails extends Controller
 
     function action_index()
     {
-
         $data = $this->model->get_data();
         $this->view->generate("/cocktails/cocktails.php", $data);
     }

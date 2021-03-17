@@ -1,0 +1,53 @@
+{sub-navbar}
+<section class="search-back">
+    <div id="main">
+        <div class="item-content">
+            <div class="item-head">
+                <h1><?=$data['Name']?></h1>
+                <ul class="tags">
+                    <?php foreach($data['Categories'] as $item): ?>
+                    <li class="item-tag">
+                        <?=$item;?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+            <div class="item-pict">
+                <img src="../../../img/cocktails/<?=$data['FileName'];?>.jpg" alt="cocktail"/>
+            </div>
+
+            <div class="contain">
+                <h2>Ingredients</h2>
+                <table class="ingredient-tables">
+                    <tbody>
+                    <tr>
+                        <th colspan="3">Ingredients</th>
+                    </tr>
+                    <?php foreach($data['Recipe'] as $item): ?>
+                    <tr>
+                        <td class="name">
+                            <a href="#<?=$item;?>"><?=$item;?></a>
+                        </td>
+                        <td class="amount">30</td>
+                        <td class="unit">ml</td>
+                    </tr>
+                    <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="recipe">
+                <h2 class="recipe-title">
+                    Recipe
+                </h2>
+                <ul class="recipe-steps">
+                    <?php foreach($data['Steps'] as $item): ?>
+                    <li><?=$item;?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+</div>

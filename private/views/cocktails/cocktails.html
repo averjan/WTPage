@@ -1,117 +1,24 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../../../css/mainstyles.css">
-    <link rel="stylesheet" href="../../../css/navbar.css">
-    <link rel="stylesheet" href="../../../css/choose-menu.css">
-    <link rel="stylesheet" href="../../../css/text-styles.css">
-    <link rel="stylesheet" href="../../../css/footer.css">
-    <link rel="stylesheet" href="../../../css/search-elements.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" async="" src="../../../js/nav-bar.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Roboto&display=swap');
-    </style>
-</head>
-<body>
 
-<div class="all-content">
-    -->
-<!-- Navigation bar -->
-<?=$sub_navbar?>
+{sub_navbar}
 
 <section class="search-back">
     <div id="main">
         <div class="search-result cocktail-grid">
-            <?php foreach($data as $item): ?>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/<?=$item['FileName']?>.jpg" alt="<?=$item['FileName']?>" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name"><?=$item['Name']?></div>
-                </a>
-            </div>
-            <?php endforeach; ?>
             <!--
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview"  href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/BloodyMary.jpg" alt="BloodyMary" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
+            <?php for($i = 0; $i < count($data); $i++ ): ?>
+            <form method="post" action="/item_cocktail" class="cocktail-item">
+                <a type="submit" onclick="this.closest('form').submit()" class="cocktail-item-preview">
+                    <img src="../../../img/cocktails/<?=$data[$i]['FileName']?>.jpg" alt="<?=$data[$i]['FileName']?>" class="cocktail-item-image"/>
+                    <div class="cocktail-item-name"><?=$data[$i]['Name']?></div>
                 </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
-            <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-cocktail/itemCocktail.html">
-                    <img src="../../../img/cocktails/WhiteRussian.jpg" alt="WhiteRussian" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">White Russian</div>
-                </a>
-            </div>
+                <input type="hidden" name="id" value="<?=$i;?>">
+            </form>
+            <?php endfor; ?>
             -->
+            {items}
         </div>
         <a class="common-more" href="#more">
             More
         </a>
     </div>
 </section>
-
-    <!--
-</div>
--->
-
-<!--
-<footer class="social-footer">
-    <div class="social-footer-left">
-        <a href="../../../index.html" class="main-logo"><em style="color:darkgoldenrod;">El</em> Gusto</a>
-    </div>
-
-    <div class="social-footer-center">
-        <a href="#about">About</a>
-    </div>
-
-    <div class="social-footer-icons">
-        <ul class="menu simple">
-            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-            <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        </ul>
-    </div>
-</footer>
--->
-
-<!--
-</body>
-
-</html>
--->

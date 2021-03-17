@@ -19,12 +19,26 @@ $main_template = str_replace("{description}",
     file_get_contents(root . '\private\views\cocktails\cocktails.html'),
     $main_template);
 
-/*
-$main_template = str_replace("{sub-navbar}",
-    file_get_contents(root . "/common/sub-navbar.html"),
+$l = "";
+for ($i = 0; $i < count($data); $i++)
+{
+    $l = $l .
+    '<form method="post" action="/item_cocktail" class="cocktail-item">
+                <a type="submit" onclick="this.closest(\'form\').submit()" class="cocktail-item-preview">
+                    <img src="../../../img/cocktails/'.$data[$i]["FileName"] . '.jpg" alt="'.$data[$i]["FileName"].'" class="cocktail-item-image"/>
+                    <div class="cocktail-item-name">'.$data[$i]["Name"].'</div>
+                </a>
+                <input type="hidden" name="id" value="'.$i.'">
+     </form>';
+}
+
+$main_template = str_replace("{items}",
+    $l,
     $main_template);
-*/
 
 $sub_navbar = file_get_contents(root . "/common/sub-navbar.html");
+$main_template = str_replace("{sub_navbar}",
+    $sub_navbar,
+    $main_template);
 
-eval('?>'.$main_template);
+echo $main_template;
