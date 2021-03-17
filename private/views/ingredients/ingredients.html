@@ -20,61 +20,72 @@
 <div class="all-content">
     -->
 
-{sub-navbar}
-<?php for($i = 0; $i < 10; $i++): ?>
-<?=get_item(2);?>
-<?php endfor; ?>
+<?=$sub_navbar;?>
+
 <section class="search-back">
     <div id="main">
         <div class="search-result cocktail-grid">
+            <?php for($i = 0; $i < count($data); $i++ ): ?>
+            <!--
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
-                    <div class="cocktail-item-name">Ice</div>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/<?=$item['Name'];?>.png" alt="<?=$item['Name'];?>" class="cocktail-item-image"/>
+                    <div class="cocktail-item-name"><?=$item['Name'];?></div>
                 </a>
-            </div>
+            </div>-->
+
+            <form action="/item_ingredient" class="cocktail-item" method="post">
+                <a type="submit" onclick="this.closest('form').submit()" class="cocktail-item-preview">
+                    <img src="/img/ingredients/<?=$data[$i]['Name'];?>.png" alt="<?=$data[$i]['Name'];?>" class="cocktail-item-image"/>
+                    <div class="cocktail-item-name"><?=$data[$i]['Name'];?></div>
+                </a>
+                <input type="hidden" name="id" value="<?=$i;?>">
+            </form>
+            <?php endfor;?>
+            <!--
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/sprite.png" alt="Sprite" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Sprite.png" alt="Sprite" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Sprite</div>
                 </a>
-            </div>
+            </div
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
             <div class="cocktail-item">
-                <a class="cocktail-item-preview" href="../item-ingredient/itemIngredient.html">
-                    <img src="../../../img/ingredients/ice.jpg" alt="Ice" class="cocktail-item-image"/>
+                <a class="cocktail-item-preview" href="../item_ingredient/item_ingredient.html">
+                    <img src="../../../img/ingredients/Ice.jpg" alt="Ice" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">Ice</div>
                 </a>
             </div>
+            -->
         </div>
         <a class="common-more" href="#more">
             More

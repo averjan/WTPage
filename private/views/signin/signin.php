@@ -1,5 +1,5 @@
 <?php
-define("root", $_SERVER['DOCUMENT_ROOT']);
+// define("root", $_SERVER['DOCUMENT_ROOT']);
 
 $main_template = file_get_contents(root . "/index.html");
 
@@ -16,7 +16,7 @@ $main_template = str_replace("{navbar}",
     $main_template);
 
 $main_template = str_replace("{description}",
-    file_get_contents("login.html"),
+    file_get_contents(root . '\private\views\signin\signin.html'),
     $main_template);
 
 echo $main_template;

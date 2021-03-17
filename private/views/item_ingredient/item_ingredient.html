@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../../../css/choose-menu.css">
     <link rel="stylesheet" href="../../../css/text-styles.css">
     <link rel="stylesheet" href="../../../css/footer.css">
-    <link rel="stylesheet" href="../../../css/login.css">
+    <link rel="stylesheet" href="../../../css/search-elements.css">
+    <link rel="stylesheet" href="../../../css/item.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" async="" src="../../../js/nav-bar.js"></script>
     <style>
@@ -17,27 +18,37 @@
     </style>
 </head>
 <body>
+<div class="all-content">
 -->
 
-<div class="login-back">
-    <div class="login">
-        <article class="login-intro">
-            <h1 class="heading">
-                Sign In
-            </h1>
-        </article>
-        <form method="post">
-            <input type="text" placeholder="Username" required="required">
-            <input type="text" placeholder="Password" required="required">
-            <button class="login-btn button">Sign In</button>
-        </form>
-        <p>
-            <a href="/lab2/modules/signup/view/signup.php">Create an account...</a>
-        </p>
+{sub-navbar}
+<section class="search-back">
+    <div id="main">
+        <div class="item-content">
+            <div class="item-head">
+                <h1><?=$data['Name'];?></h1>
+                <ul class="tags">
+                    <li class="item-tag">
+                        <?=$data['Name'];?>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="item-pict">
+                <img src="../../../img/ingredients/<?=$data['Name'];?>.png" alt="cocktail"/>
+            </div>
+
+            <div id="ingredient-definition">
+                <span class="text-about">
+                    <?=$data['Description'];?>
+                </span>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 <!--
+</div>
 <footer class="social-footer">
     <div class="social-footer-left">
         <a href="../../../index.html" class="main-logo"><em style="color:darkgoldenrod;">El</em> Gusto</a>

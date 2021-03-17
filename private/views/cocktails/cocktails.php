@@ -1,5 +1,5 @@
 <?php
-define("root", $_SERVER['DOCUMENT_ROOT']);
+// define("root", $_SERVER['DOCUMENT_ROOT']);
 
 $main_template = file_get_contents(root . "/index.html");
 
@@ -16,11 +16,15 @@ $main_template = str_replace("{navbar}",
     $main_template);
 
 $main_template = str_replace("{description}",
-    file_get_contents("cocktails.html"),
+    file_get_contents(root . '\private\views\cocktails\cocktails.html'),
     $main_template);
 
+/*
 $main_template = str_replace("{sub-navbar}",
     file_get_contents(root . "/common/sub-navbar.html"),
     $main_template);
+*/
 
-echo $main_template;
+$sub_navbar = file_get_contents(root . "/common/sub-navbar.html");
+
+eval('?>'.$main_template);

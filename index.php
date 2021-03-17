@@ -1,4 +1,5 @@
 <?php
+/*
     $main_template = file_get_contents("index.html");
 
     $main_template = str_replace("{header}",
@@ -18,3 +19,6 @@
     $main_template);
 
     echo $main_template;
+*/
+define("root", $_SERVER['DOCUMENT_ROOT']);
+require_once "boot.php";

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="80f19778-c4c3-4c88-963e-52f56413fa94" name="averkin.tim" url="http://averkin.tim">
+        <fileTransfer mountedRoot="E:\xampp\htdocs" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
