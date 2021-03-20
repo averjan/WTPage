@@ -28,10 +28,10 @@
                 Sign Up
             </h1>
         </article>
-        <form method="post">
-            <input type="text" placeholder="Email" required="required">
-            <input type="text" placeholder="Username" required="required">
-            <input type="text" placeholder="Password" required="required">
+        <form action="/signup/registration" method="post">
+            <input type="text" name="email" placeholder="Email" required="required">
+            <input type="text" name="username" placeholder="Username" required="required">
+            <input type="text" name="password" placeholder="Password" required="required">
             <input type="text" placeholder="Confirm Password" required="required">
             <button class="login-btn button">Sign Up</button>
         </form>
