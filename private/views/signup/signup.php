@@ -19,4 +19,8 @@ $main_template = str_replace("{description}",
     file_get_contents(root . '\private\views\signup\signup.html'),
     $main_template);
 
+$main_template = str_replace("{error_mail}",
+    $data,
+    $main_template);
+
 echo $main_template;
