@@ -23,7 +23,7 @@ $l = "";
 for ($i = 0; $i < count($data); $i++)
 {
     $l = $l .
-    '<form method="post" action="/item_cocktail" class="cocktail-item">
+    '<form method="get" action="/item_cocktail/cocktail/'.$data[$i]["ID"].'" class="cocktail-item">
                 <a type="submit" onclick="this.closest(\'form\').submit()" class="cocktail-item-preview">
                     <img src="../../../img/cocktails/'.$data[$i]["FileName"] . '.jpg" alt="'.$data[$i]["FileName"].'" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">'.$data[$i]["Name"].'</div>

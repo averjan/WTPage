@@ -5,8 +5,32 @@ class model_item_cocktail extends Model
 {
     public function get_data(): ?array
     {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("SELECT * FROM cocktails");
+        $sth->execute();
+        while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $required_array['Recipe'] = array('Som');
+            $required_array['Steps'] = explode(".", $required_array['Steps']);
+            $required_array['Categories'] = array();
+            array_push(
+                $required_array['Categories'],
+                $required_array['Strong'],
+                $required_array['Taste'],
+                $required_array['Base']);
+            array_push($cocktail_array, $required_array);
+        }
+
+        return $cocktail_array;
+
+        /*
         return array(
             array(
+                'Index' => 0,
                 'Name' => 'White Russian',
                 'FileName' => 'WhiteRussian',
                 'Categories' => array ( 'Some', 'Some', 'Some' ),
@@ -19,6 +43,7 @@ class model_item_cocktail extends Model
                 'Description' => 'Промо-сайт темного пива Dunkel от немецкого производителя Löwenbraü выпускаемого в России пивоваренной компанией "CАН ИнБев".'
             ),
             array(
+                'Index' => 1,
                 'Name' => 'Bloody Mary',
                 'FileName' => 'BloodyMary',
                 'Categories' => array ( 'Some', 'Some', 'Some' ),
@@ -35,5 +60,6 @@ class model_item_cocktail extends Model
             ),
 
         );
+        */
     }
 }

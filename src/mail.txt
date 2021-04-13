@@ -1,3 +1,7 @@
 user some_mail%.#ff@gg.com.ru.uk
 uso swag@mail.ru
 u _a@gmail.com.uk
+user asdf@mail.ru
+usar swag@mail.ru
+uer email@email.com
+uer2 email+smt@email.com
