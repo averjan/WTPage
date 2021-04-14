@@ -14,8 +14,18 @@ class controller_item_ingredient extends Controller
 
     function action_index()
     {
-        if (isset($_POST['id'])) {
+        if (isset($_GET['id'])) {
             $this->id = $_POST['id'];
+            $l = $this->model->get_data();
+            $data = $l[$this->id];
+            $this->view->generate("/item_ingredient/item_ingredient.php", $data);
+        }
+    }
+
+    function action_ingredient()
+    {
+        if (isset($_GET['id'])) {
+            $this->id = $_GET['id'];
             $l = $this->model->get_data();
             $data = $l[$this->id];
             $this->view->generate("/item_ingredient/item_ingredient.php", $data);

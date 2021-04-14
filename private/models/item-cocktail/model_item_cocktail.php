@@ -14,7 +14,21 @@ class model_item_cocktail extends Model
         $sth = $dbo->prepare("SELECT * FROM cocktails");
         $sth->execute();
         while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
-            $required_array['Recipe'] = array('Som');
+            $call_ingredients = $dbo->prepare("SELECT * FROM recipe WHERE cocktailID = :current");
+            $call_ingredients->execute(array('current' => $required_array['ID']));
+
+            $required_array['Recipe'] = array();
+            while ($recipe_element = $call_ingredients->fetch(PDO::FETCH_ASSOC))
+            {
+                $call_recipe = $dbo->prepare("SELECT * FROM ingredients WHERE ID = :id");
+                $call_recipe->execute(array('id' => $recipe_element['ingredientID']));
+                $ingredient = array();
+                $ingredient["ingredient"] = $call_recipe->fetch(PDO::FETCH_ASSOC);
+                $ingredient["measure"] = $recipe_element["measure"];
+                $ingredient["count"] = $recipe_element["count"];
+                array_push( $required_array['Recipe'], $ingredient);
+            }
+
             $required_array['Steps'] = explode(".", $required_array['Steps']);
             $required_array['Categories'] = array();
             array_push(

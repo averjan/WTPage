@@ -27,10 +27,12 @@
                     <?php foreach($data['Recipe'] as $item): ?>
                     <tr>
                         <td class="name">
-                            <a href="#<?=$item;?>"><?=$item;?></a>
+                            <a href="/item_ingredient/ingredient/<?=$item['ingredient']['ID'];?>?id=<?=$item['ingredient']['ID'];?>">
+                                <?=$item['ingredient']['Name'];?>
+                            </a>
                         </td>
-                        <td class="amount">30</td>
-                        <td class="unit">ml</td>
+                        <td class="amount"><?=$item['count'];?></td>
+                        <td class="unit"><?=$item['measure'];?></td>
                     </tr>
                     <?php endforeach; ?>
 
