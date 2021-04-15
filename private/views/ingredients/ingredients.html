@@ -93,6 +93,50 @@
     </div>
 </section>
 
+<script>
+    function filterData(data) {
+
+    }
+
+    let sortItems
+    $(document).ready(function() {
+        sortItems = (filters) => {
+            $.ajax({
+                type: "GET",
+                url: "ingredients/filter/value",
+                data: {
+                    strong: filters.get("strong"),
+                    base: filters.get("base"),
+                    taste: filters.get("taste")
+                },
+                success: function(data) {
+                    let result = JSON.parse(data)
+                    console.log(result)
+                    $(".search-result").html(result)
+                }
+            })
+        }
+    })
+    // document.getElementById("sub-nav-form").action = "cocktails/filter/value"
+
+    for (let el of document.getElementsByClassName("filter")) {
+        el.addEventListener('change', (e) => {
+            e.preventDefault()
+            let form = document.getElementById("sub-nav-form")
+            let formData = new FormData(form)
+            sortItems(formData)
+        })
+    }
+
+    document.getElementById("sub-nav-form").addEventListener("submit", (e) => {
+        e.preventDefault()
+        let form = e.target
+        let formData = new FormData(form)
+        sortItems(formData)
+    })
+
+</script>
+
     <!--
 </div>
 -->

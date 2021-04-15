@@ -37,4 +37,22 @@ class model_item_ingredient extends Model
         );
         */
     }
+
+    public function get_data_filtered(array $filters): ?array
+    {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("SELECT * FROM ingredients WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste");
+        $sth->execute(array('base' => $filters["Base"], 'strong' => $filters['Strong'], 'taste' => $filters['Taste']));
+        while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
+            str_replace(' ', '', $required_array['FileName']);
+            array_push($cocktail_array, $required_array);
+        }
+
+        return $cocktail_array;
+    }
 }

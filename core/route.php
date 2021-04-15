@@ -55,7 +55,6 @@ class Route
         // создаем контроллер
         $controller = new $controller_name();
         $action = $action_name;
-
         if(method_exists($controller, $action))
         {
             // вызываем действие контроллера
@@ -72,7 +71,7 @@ class Route
     static function ErrorPage404()
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        echo "swag";
+        echo 'not found';
         /*
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
