@@ -20,6 +20,7 @@ class controller_cocktails extends Controller
     {
         $base = 0;
         $data = $this->model->get_data_filtered(array(
+            "Item" => empty($_GET['search']) ? '%' : '%'.$_GET['search'].'%',
             "Base" => empty($_GET['base']) ? '%' : $_GET['base'],
             "Strong" => empty($_GET['strong']) ? '%' : $_GET['strong'],
             "Taste" => empty($_GET['taste']) ? '%' : $_GET['taste']

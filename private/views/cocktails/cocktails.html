@@ -24,17 +24,16 @@
 </section>
 
 <script>
-    function filterData(data) {
-
-    }
 
     let sortItems
+    let searchItems
     $(document).ready(function() {
         sortItems = (filters) => {
             $.ajax({
                 type: "GET",
                 url: "cocktails/filter/value",
                 data: {
+                    search: filters.get("search"),
                     strong: filters.get("strong"),
                     base: filters.get("base"),
                     taste: filters.get("taste")
@@ -46,23 +45,26 @@
                 }
         })
         }
+
+        searchItems = (item) => {
+            $.ajax({
+                type: "GET",
+                url: ""
+            })
+        }
     })
-    // document.getElementById("sub-nav-form").action = "cocktails/filter/value"
 
     for (let el of document.getElementsByClassName("filter")) {
-        el.addEventListener('change', (e) => {
-            e.preventDefault()
-            let form = document.getElementById("sub-nav-form")
-            let formData = new FormData(form)
-            sortItems(formData)
-        })
+        el.addEventListener('change', (e) => submitForm(e))
     }
 
-    document.getElementById("sub-nav-form").addEventListener("submit", (e) => {
+    document.getElementById("sub-nav-form").addEventListener("submit", (e) => submitForm(e))
+    document.getElementById("sub-nav-form").addEventListener("input", (e) => submitForm(e))
+
+    function submitForm(e) {
         e.preventDefault()
-        let form = e.target
+        let form = document.getElementById("sub-nav-form")
         let formData = new FormData(form)
         sortItems(formData)
-    })
-
+    }
 </script>

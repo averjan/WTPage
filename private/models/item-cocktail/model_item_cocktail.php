@@ -85,8 +85,12 @@ class model_item_cocktail extends Model
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
         $cocktail_array = array();
-        $sth = $dbo->prepare("SELECT * FROM cocktails WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste");
-        $sth->execute(array('base' => $filters["Base"], 'strong' => $filters['Strong'], 'taste' => $filters['Taste']));
+        $sth = $dbo->prepare("SELECT * FROM cocktails WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste AND NAME LIKE :item");
+        $sth->execute(array(
+            'base' => $filters["Base"],
+            'strong' => $filters['Strong'],
+            'taste' => $filters['Taste'],
+            'item' => $filters['Item']));
         while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
             $call_ingredients = $dbo->prepare("SELECT * FROM recipe WHERE cocktailID = :current");
             $call_ingredients->execute(array('current' => $required_array['ID']));

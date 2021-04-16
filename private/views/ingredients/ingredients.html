@@ -105,6 +105,7 @@
                 type: "GET",
                 url: "ingredients/filter/value",
                 data: {
+                    search: filters.get("search"),
                     strong: filters.get("strong"),
                     base: filters.get("base"),
                     taste: filters.get("taste")
@@ -128,9 +129,9 @@
         })
     }
 
-    document.getElementById("sub-nav-form").addEventListener("submit", (e) => {
-        e.preventDefault()
-        let form = e.target
+    document.getElementById("sub-nav-form").onsubmit = function() {
+        this.preventDefault()
+        let form = this.target
         let formData = new FormData(form)
         sortItems(formData)
     })
