@@ -71,7 +71,7 @@ class Route
     static function ErrorPage404()
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        echo 'not found';
+        echo 'not found!';
         /*
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");

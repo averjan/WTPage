@@ -28,7 +28,7 @@ for ($i = 0; $i < count($data); $i++)
                     <img src="../../../img/cocktails/'.$data[$i]["FileName"] . '.jpg" alt="'.$data[$i]["FileName"].'" class="cocktail-item-image"/>
                     <div class="cocktail-item-name">'.$data[$i]["Name"].'</div>
                 </a>
-                <input type="hidden" name="id" value="'.$i.'">
+                <input type="hidden" name="id" value="'.$data[$i]["ID"].'">
      </form>';
 }
 
