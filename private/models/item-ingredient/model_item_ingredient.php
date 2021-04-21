@@ -13,29 +13,15 @@ class model_item_ingredient extends Model
         $cocktail_array = array();
         $sth = $dbo->prepare("SELECT * FROM ingredients");
         $sth->execute();
+        /*
         while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
             str_replace(' ', '', $required_array['FileName']);
             array_push($cocktail_array, $required_array);
         }
-
-        return $cocktail_array;
-        /*
-        return array(
-            array(
-                'ID' => 0,
-                'Name' => 'Sprite',
-                'FileName' => 'Sprite',
-                'Description' => 'Сладкий газированный напиток производят на основе содовой с добавлением сахара и лимонного экстракта.'
-            ),
-            array(
-                'ID' => 1,
-                'Name' => 'Ice',
-                'FileName' => 'Ice',
-                'Description' => 'При производстве этого незаменимого ингредиента основное внимание уделяют чистоте воды и скорости заморозки. Чем медленнее замораживается вода, тем прозрачнее получается продукт. Идеальные образцы не имеют полостей и медленнее тают в бокале.'
-            ),
-
-        );
         */
+        $cocktail_array = $sth->fetchAll();
+        return $cocktail_array;
+
     }
 
     public function get_data_filtered(array $filters): ?array
@@ -48,11 +34,13 @@ class model_item_ingredient extends Model
         $cocktail_array = array();
         $sth = $dbo->prepare("SELECT * FROM ingredients WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste");
         $sth->execute(array('base' => $filters["Base"], 'strong' => $filters['Strong'], 'taste' => $filters['Taste']));
+
         while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
             str_replace(' ', '', $required_array['FileName']);
             array_push($cocktail_array, $required_array);
         }
 
+        //$cocktail_array = $sth->fetchAll();
         return $cocktail_array;
     }
 }
