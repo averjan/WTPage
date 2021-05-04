@@ -1,0 +1,35 @@
+<section class="search-back">
+    <div id="main">
+        <div class="search-result cocktail-grid">
+            <form method="post" action="/add_item/create">
+                <input type="text" placeholder="Name" name="Name">
+                <input type="text" placeholder="File name" name="FileName">
+                <input type="text" placeholder="Description" name="Description">
+                <input type="text" placeholder="Steps" name="Steps">
+
+                <select class="filter" name="Strong">
+                    <option value="" selected>Крепость</option>
+                    <option value="Without">Безалкогольные</option>
+                    <option value="NonStrong">Слабоалкогольные</option>
+                    <option value="Strong">Крепкоалкогольные</option>
+                </select>
+                <select class="filter" name="Base">
+                    <option value="" selected>Основа</option>
+                    <option value="Absent">На абсенте</option>
+                    <option value="Vodka">На водке</option>
+                    <option value="Vine">На вине</option>
+                </select>
+                <select class="filter" name="Taste">
+                    <option value="" selected>Вкус</option>
+                    <option value="Bitter">Горькие</option>
+                    <option value="Sour">Кислые</option>
+                    <option value="Coffee">Кофейные</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Salty">Salty</option>
+                </select>
+
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+</section>

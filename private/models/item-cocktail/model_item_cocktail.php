@@ -84,4 +84,23 @@ class model_item_cocktail extends Model
 
         return $cocktail_array;
     }
+
+    function push($item)
+    {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("INSERT INTO cocktails SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Steps = :steps, Description = :description");
+        $sth->execute(array(
+            'base' => $item["Base"],
+            'strong' => $item['Strong'],
+            'taste' => $item['Taste'],
+            'item' => $item['Name'],
+            'filename' => $item['FileName'],
+            'steps' => $item['Steps'],
+            'description' => $item['Description']));
+    }
 }

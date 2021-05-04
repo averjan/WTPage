@@ -27,7 +27,13 @@ class controller_item_cocktail extends Controller
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $this->id = intval($routes[3]);
         $l = $this->model->get_data();
-        $data = $l[$this->id];
+        //$data = $l[$this->id];
+        foreach ($l as $el) {
+            if ($this->id == $el['ID']) {
+                $data = $el;
+                break;
+            }
+        }
         //$data = $l[0];
         $this->view->generate("/item_cocktail/item_cocktail.php", $data);
     }

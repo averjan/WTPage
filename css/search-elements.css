@@ -141,6 +141,7 @@
     padding-top: 10px;
     margin: 10px;
     justify-self: center;
+    cursor: pointer;
 }
 
 .common-more {
