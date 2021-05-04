@@ -18,6 +18,7 @@ class controller_ingredients extends Controller
     function action_filter()
     {
         $data = $this->model->get_data_filtered(array(
+            "Name" => empty($_GET['search']) ? '%' : '%'.$_GET['search'].'%',
             "Base" => empty($_GET['base']) ? '%' : $_GET['base'],
             "Strong" => empty($_GET['strong']) ? '%' : $_GET['strong'],
             "Taste" => empty($_GET['taste']) ? '%' : $_GET['taste']

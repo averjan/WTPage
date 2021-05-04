@@ -129,12 +129,16 @@
         })
     }
 
-    document.getElementById("sub-nav-form").onsubmit = function() {
-        this.preventDefault()
-        let form = this.target
+
+    document.getElementById("sub-nav-form").addEventListener("submit", (e) => submitForm(e))
+    document.getElementById("sub-nav-form").addEventListener("input", (e) => submitForm(e))
+
+    function submitForm(e) {
+        e.preventDefault()
+        let form = document.getElementById("sub-nav-form")
         let formData = new FormData(form)
         sortItems(formData)
-    })
+    }
 
 </script>
 
