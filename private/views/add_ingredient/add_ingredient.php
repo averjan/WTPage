@@ -10,7 +10,7 @@ $main_template = str_replace("{footer}",
     $main_template);
 
 $main_template = str_replace("{navbar}",
-    file_get_contents(root . "/common/navbar.html"),
+    construct_header(),
     $main_template);
 
 $main_template = str_replace("{description}",

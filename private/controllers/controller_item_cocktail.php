@@ -1,15 +1,20 @@
 <?php
 
 include root . '\private\models\item-cocktail\model_item_cocktail.php';
+include root . '\private\models\home\model_home.php';
+
 class controller_item_cocktail extends Controller
 {
     public int $id;
+    private model_home $home_model;
 
     function __construct()
     {
         $this->id = 0;
         $this->model = new model_item_cocktail();
         $this->view = new View();
+
+        $this->home_model = new model_home();
     }
 
     function action_index()
@@ -40,7 +45,25 @@ class controller_item_cocktail extends Controller
 
     function action_delete()
     {
-        $this->model->delete($_GET['id']);
-        header('Location: /cocktails');
+        if ($this->check_authorised()) {
+            $this->model->delete($_GET['id']);
+            header('Location: /cocktails');
+        }
+    }
+
+    private function check_authorised()
+    {
+        if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])
+            and $this->home_model->is_right_cookie(array(
+                'id'=>$_COOKIE['id'],
+                'hash' => $_COOKIE['hash'],
+                'addr' => $_SERVER['REMOTE_ADDR']))) {
+
+
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
