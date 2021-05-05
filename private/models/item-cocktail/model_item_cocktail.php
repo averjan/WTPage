@@ -127,6 +127,47 @@ class model_item_cocktail extends Model
         }
     }
 
+    function save($item) {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("UPDATE cocktails SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Steps = :steps, Description = :description");
+        $sth->execute(array(
+            'base' => $item["Base"],
+            'strong' => $item['Strong'],
+            'taste' => $item['Taste'],
+            'item' => $item['Name'],
+            'filename' => $item['FileName'],
+            'steps' => $item['Steps'],
+            'description' => $item['Description']));
+
+
+        $this->update_ingredients(json_decode($item['list']), $item['ID']);
+    }
+
+    private function update_ingredients($ingredient_array, $id) {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $sth = $dbo->prepare("DELETE FROM `recipe` WHERE `cocktailID` = :id");
+        $sth->execute(array(':id' => $id));
+        foreach ($ingredient_array as $item) {
+            $item = (array) $item;
+            $sth = $dbo->prepare("INSERT INTO `recipe` SET `cocktailID` = :cocktailid, `ingredientID` = :ingredientid, `count` = :count, `measure` = :measure");
+            $sth->execute(array(
+                ':cocktailid' => $id,
+                ':ingredientid' => $item['id'],
+                ':count' => $item['count'],
+                ':measure' => $item['measure']
+            ));
+        }
+    }
+
     function get_id($item) {
         $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
             'test_user',

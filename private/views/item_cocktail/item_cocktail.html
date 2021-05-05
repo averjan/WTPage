@@ -51,7 +51,7 @@
             </div>
 
             <div>
-                <form method="get" action="/cocktail/cocktail_edit/">
+                <form method="get" action="/edit_cocktail/index/<?=$data['ID']; ?>">
                     <input type="hidden" name="id" value="<?=$data['ID']; ?>" />
                     <input type="submit" value="Edit" />
                 </form>

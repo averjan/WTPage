@@ -1,0 +1,109 @@
+<section class="search-back">
+    <div id="main">
+        <div class="search-result add-item-back">
+            <form id="this-form" method="post" action="/edit_cocktail/save">
+                <input id="add-cocktail-name" type="text" placeholder="Name" name="Name" value="<?=$data['is']['Name']; ?>">
+                <input id="add-cocktail-filename" type="text" placeholder="File name" name="FileName" value="<?=$data['is']['FileName']; ?>">
+                <input id="add-cocktail-description" type="text" placeholder="Description" name="Description" value="<?=$data['is']['Description']; ?>">
+                <input id="add-cocktail-steps" type="text" placeholder="Steps" name="Steps" value="<?=implode('.', $data['is']['Steps']); ?>">
+
+                <select id="add-cocktail-strong" class="filter" name="Strong">
+                    <option value="" selected>Крепость</option>
+                    <option value="Without">Безалкогольные</option>
+                    <option value="NonStrong">Слабоалкогольные</option>
+                    <option value="Strong">Крепкоалкогольные</option>
+                </select>
+                <select id="add-cocktail-base" class="filter" name="Base">
+                    <option value="" selected>Основа</option>
+                    <option value="Absent">На абсенте</option>
+                    <option value="Vodka">На водке</option>
+                    <option value="Vine">На вине</option>
+                </select>
+                <select id="add-cocktail-taste" class="filter" name="Taste">
+                    <option value="" selected>Вкус</option>
+                    <option value="Bitter">Горькие</option>
+                    <option value="Sour">Кислые</option>
+                    <option value="Coffee">Кофейные</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Salty">Salty</option>
+                </select>
+
+                <input name="ID" type="hidden" value="<?=$data['is']['ID']; ?>" />
+                <input id="added-array" name="list" value="" type="hidden">
+                <button id="form-create-cocktail" type="submit" value="Create" onclick="return createCocktail(this)">
+                    Create
+                </button>
+            </form>
+
+            <div style="width: 100%">
+                <input id="enter-count" type="text" placeholder="Count"/>
+                <input id="enter-measure" type="text" placeholder="Measure"/>
+
+                <div style="overflow: scroll; width: auto; height: 200px;">
+                    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+
+                    <ul id="myUl">
+                        <?php foreach($data["to"] as $item): ?>
+                        <li onclick="chooseItem(this)" value="<?=$item['ID']; ?>"><?=$item['Name']; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <ul id="current-ingredients">
+                    <?php foreach($data["is"]['Recipe'] as $item): ?>
+                    <li class="add-items-cocktail-ingredients" onclick="removeIngredient(this)">
+                        <input class="add-item-id" name="id" type="hidden" value="<?=$item['ingredient']['ID']; ?>" />
+                        <input class="add-item-count" name="count" type="hidden" value="<?=$item['count']; ?>" />
+                        <input class="add-item-measure" name="measure" type="hidden" value="<?=$item['measure']; ?>" />
+                        <p><?=$item['ingredient']['Name']; ?></p>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+
+                <input type="button" onclick="addIngredient(this)" value="Add"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<template id="added-item-template">
+    <li class="add-items-cocktail-ingredients" onclick="removeIngredient(this)">
+        <input class="add-item-id" name="id" type="hidden" value="" />
+        <input class="add-item-count" name="count" type="hidden" value="" />
+        <input class="add-item-measure" name="measure" type="hidden" value="" />
+        <p></p>
+    </li>
+</template>
+
+<template id="item-list-template">
+    <!--
+    <option value=""></option>
+    -->
+    <li onclick="chooseItem(this)" value=""></li>
+</template>
+
+<script>
+    let def_strong = "<?=$data['is']['Strong']; ?>"
+    let def_taste = "<?=$data['is']['Taste']; ?>"
+    let def_base = "<?=$data['is']['Base']; ?>"
+
+</script>
+
+<script>
+
+    function setOption(item, op) {
+        for (let el of item) {
+            if (el.value === op.value) {
+                el.select()
+                break
+            }
+        }
+    }
+
+    setOption(document.getElementById('add-cocktail-strong'), def_strong)
+    setOption(document.getElementById('add-cocktail-taste'), def_taste)
+    setOption(document.getElementById('add-cocktail-base'), def_base)
+
+</script>
+
+<script type="text/javascript" async="" src="/private/views/edit_cocktail/edit_cocktail.js"></script>
