@@ -1,25 +1,25 @@
 <section class="search-back">
     <div id="main">
-        <div class="search-result cocktail-grid">
-            <form method="post" action="/add_item/create">
-                <input type="text" placeholder="Name" name="Name">
-                <input type="text" placeholder="File name" name="FileName">
-                <input type="text" placeholder="Description" name="Description">
-                <input type="text" placeholder="Steps" name="Steps">
+        <div class="search-result add-item-back">
+            <form id="this-form" method="post" action="/add_item/create">
+                <input id="add-cocktail-name" type="text" placeholder="Name" name="Name">
+                <input id="add-cocktail-filename" type="text" placeholder="File name" name="FileName">
+                <input id="add-cocktail-description" type="text" placeholder="Description" name="Description">
+                <input id="add-cocktail-steps" type="text" placeholder="Steps" name="Steps">
 
-                <select class="filter" name="Strong">
+                <select id="add-cocktail-strong" class="filter" name="Strong">
                     <option value="" selected>Крепость</option>
                     <option value="Without">Безалкогольные</option>
                     <option value="NonStrong">Слабоалкогольные</option>
                     <option value="Strong">Крепкоалкогольные</option>
                 </select>
-                <select class="filter" name="Base">
+                <select id="add-cocktail-base" class="filter" name="Base">
                     <option value="" selected>Основа</option>
                     <option value="Absent">На абсенте</option>
                     <option value="Vodka">На водке</option>
                     <option value="Vine">На вине</option>
                 </select>
-                <select class="filter" name="Taste">
+                <select id="add-cocktail-taste" class="filter" name="Taste">
                     <option value="" selected>Вкус</option>
                     <option value="Bitter">Горькие</option>
                     <option value="Sour">Кислые</option>
@@ -28,8 +28,56 @@
                     <option value="Salty">Salty</option>
                 </select>
 
-                <input type="submit" value="Create">
+                <input id="added-array" name="list" value="" type="hidden">
+                <button id="form-create-cocktail" type="submit" value="Create" onclick="return createCocktail(this)">
+                    Create
+                </button>
             </form>
+
+            <div style="width: 100%">
+                <input id="enter-count" type="text" placeholder="Count"/>
+                <input id="enter-measure" type="text" placeholder="Measure"/>
+                <select class="ingredient-select" name="Taste">
+                    <option value="" selected>Ingredient</option>
+                    <?php foreach($data as $item): ?>
+                        <option value="<?=$item['ID']; ?>"><?=$item['Name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <div style="overflow: scroll; width: auto; height: 200px;">
+                    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+
+                    <ul id="myUl">
+                        <?php foreach($data as $item): ?>
+                        <li onclick="chooseItem(this)" value="<?=$item['ID']; ?>"><?=$item['Name']; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <ul id="current-ingredients">
+
+                </ul>
+
+                <input type="button" onclick="addIngredient(this)" value="Add"/>
+            </div>
         </div>
     </div>
 </section>
+
+<template id="added-item-template">
+    <li class="add-items-cocktail-ingredients" onclick="removeIngredient(this)">
+        <input id="add-item-id" name="id" type="hidden" value="" />
+        <input id="add-item-count" name="count" type="hidden" value="" />
+        <input id="add-item-measure" name="measure" type="hidden" value="" />
+        <p></p>
+    </li>
+</template>
+
+<template id="item-list-template">
+    <!--
+    <option value=""></option>
+    -->
+    <li onclick="chooseItem(this)" value=""></li>
+</template>
+
+<script type="text/javascript" async="" src="/private/views/add_item/add_item.js"></script>

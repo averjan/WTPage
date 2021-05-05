@@ -1,0 +1,8 @@
+.add-item-back {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    background: white;
+}

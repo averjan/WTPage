@@ -27,6 +27,7 @@ class controller_item_ingredient extends Controller
         if (isset($_GET['id'])) {
             $this->id = $_GET['id'];
             $l = $this->model->get_data();
+            $this->id = array_search($this->id, array_column($l, 'ID'));
             $data = $l[$this->id];
             $this->view->generate("/item_ingredient/item_ingredient.php", $data);
         }

@@ -17,4 +17,5 @@ $main_template = str_replace("{description}",
     file_get_contents(root . '\private\views\add_item\add_item.html'),
     $main_template);
 
-echo $main_template;
+eval('?>'.$main_template);
+//echo $main_template;

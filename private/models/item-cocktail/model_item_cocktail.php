@@ -102,6 +102,49 @@ class model_item_cocktail extends Model
             'filename' => $item['FileName'],
             'steps' => $item['Steps'],
             'description' => $item['Description']));
+
+
+        $insert_id = $dbo->lastInsertId();
+        $this->set_ingredients(json_decode($item['list']), $insert_id);
+        return $insert_id;
+    }
+
+    private function set_ingredients($ingredient_array, $id) {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        foreach ($ingredient_array as $item) {
+            $item = (array) $item;
+            $sth = $dbo->prepare("INSERT INTO `recipe` SET `cocktailID` = :cocktailid, `ingredientID` = :ingredientid, `count` = :count, `measure` = :measure");
+            $sth->execute(array(
+                ':cocktailid' => $id,
+                ':ingredientid' => $item['id'],
+                ':count' => $item['count'],
+                ':measure' => $item['measure']
+            ));
+        }
+    }
+
+    function get_id($item) {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $sth = $dbo->prepare("SELECT * FROM cocktails WHERE Base = :base AND Strong = :strong AND Taste = :taste AND Name = :item AND FileName = :filename AND Steps = :steps AND Description = :description");
+        $sth->execute(array(
+            'base' => $item["Base"],
+            'strong' => $item['Strong'],
+            'taste' => $item['Taste'],
+            'item' => $item['Name'],
+            'filename' => $item['FileName'],
+            'steps' => $item['Steps'],
+            'description' => $item['Description']));
+
+        $item = $sth->fetch(PDO::FETCH_ASSOC);
+        return $item['ID'];
     }
 
     function delete($id)
