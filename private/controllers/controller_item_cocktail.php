@@ -34,7 +34,13 @@ class controller_item_cocktail extends Controller
                 break;
             }
         }
-        //$data = $l[0];
+
         $this->view->generate("/item_cocktail/item_cocktail.php", $data);
+    }
+
+    function action_delete()
+    {
+        $this->model->delete($_GET['id']);
+        header('Location: /cocktails');
     }
 }

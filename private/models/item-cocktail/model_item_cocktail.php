@@ -103,4 +103,17 @@ class model_item_cocktail extends Model
             'steps' => $item['Steps'],
             'description' => $item['Description']));
     }
+
+    function delete($id)
+    {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("DELETE FROM cocktails WHERE ID = :id");
+        $sth->execute(array(
+            'id' => $id));
+    }
 }

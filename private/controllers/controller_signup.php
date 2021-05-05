@@ -1,12 +1,9 @@
 <?php
 
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
 require 'vendor/autoload.php';
 
 include root . '\private\models\signup\model_signup.php';
@@ -39,7 +36,7 @@ class controller_signup extends Controller
                 $_POST["username"],
                 $_POST["password"]))
             {
-                //$this->sendMail($mail, $_POST["username"]);
+                $this->sendMail($mail, $_POST["username"]);
                 $work_file = fopen(root . "\src\mail.txt", "a+");
                 fwrite($work_file, $_POST["username"] . " " . $match[1] . "\n");
                 fclose($work_file);
@@ -64,29 +61,31 @@ class controller_signup extends Controller
         $mail = new PHPMailer(true);
         try {
             //Server settings
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'courseworkksis@gmail.com';                     //SMTP username
-            $mail->Password   = '15testPassword';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'courseworkksis@gmail.com';
+            $mail->Password   = '15testPassword';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
             //Recipients
             $mail->setFrom('elgusto@elgusto.com', 'El Gusto');
-            //$mail->setFrom('course_work_ksis@mail.ru', 'El Gusto');
-            $mail->addAddress($mail_string, $user);     //Add a recipient
-            //$mail->addAddress('ellen@example.com');               //Name is optional
+            $mail->addAddress($mail_string, $user);
             $mail->addReplyTo('courseworkksis@gmail.com', 'El Gusto');
 
             //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->isHTML(true);
             $mail->Subject = 'Welcome!';
-            $mail->Body    = 'Welcome to ElGusto, <bold>'.$user.'</bold>!';
+            $msg = $main_template = file_get_contents(root . "/email.html");
+            $main_template = str_replace("{user}",
+                $user,
+                $main_template);
+            $mail->Body = $main_template;
+            //$mail->Body    = 'Welcome to ElGusto, <bold>'.$user.'</bold>!';
             $mail->AltBody = 'Welcome to ElGusto, '.$user.'!';
 
             $mail->send();
-            //echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

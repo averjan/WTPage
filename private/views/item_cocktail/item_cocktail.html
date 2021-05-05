@@ -51,8 +51,14 @@
             </div>
 
             <div>
-                <a href="/cocktail_edit">Edit</a>
-                <a href="/item_cocktail/delete">Delete</a>
+                <form method="get" action="/cocktail/cocktail_edit/">
+                    <input type="hidden" name="id" value="<?=$data['ID']; ?>" />
+                    <input type="submit" value="Edit" />
+                </form>
+                <form method="get" action="/item_cocktail/delete/" aria-disabled="true"/>
+                    <input type="hidden" name="id" value="<?=$data['ID']; ?>" disabled/>
+                    <input type="submit" value="Delete" disabled/>
+                </form>
             </div>
         </div>
     </div>
