@@ -92,9 +92,9 @@
 <script>
 
     function setOption(item, op) {
-        for (let el of item) {
-            if (el.value === op.value) {
-                el.select()
+        for (let el of item.options) {
+            if (el.value === op) {
+                el.selected = true
                 break
             }
         }

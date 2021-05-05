@@ -134,7 +134,7 @@ class model_item_cocktail extends Model
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
         $cocktail_array = array();
-        $sth = $dbo->prepare("UPDATE cocktails SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Steps = :steps, Description = :description");
+        $sth = $dbo->prepare("UPDATE cocktails SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Steps = :steps, Description = :description WHERE ID = :id");
         $sth->execute(array(
             'base' => $item["Base"],
             'strong' => $item['Strong'],
@@ -142,7 +142,8 @@ class model_item_cocktail extends Model
             'item' => $item['Name'],
             'filename' => $item['FileName'],
             'steps' => $item['Steps'],
-            'description' => $item['Description']));
+            'description' => $item['Description'],
+            'id' => $item['ID']));
 
 
         $this->update_ingredients(json_decode($item['list']), $item['ID']);

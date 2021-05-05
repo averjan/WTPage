@@ -32,14 +32,10 @@ class model_item_ingredient extends Model
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
         $cocktail_array = array();
-<<<<<<< HEAD
+
         $sth = $dbo->prepare("SELECT * FROM ingredients WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste AND NAME LIKE :item");
         $sth->execute(array('base' => $filters["Base"], 'strong' => $filters['Strong'], 'taste' => $filters['Taste'], 'item' => $filters['Name']));
-=======
-        $sth = $dbo->prepare("SELECT * FROM ingredients WHERE Base LIKE :base AND Strong LIKE :strong AND Taste LIKE :taste");
-        $sth->execute(array('base' => $filters["Base"], 'strong' => $filters['Strong'], 'taste' => $filters['Taste']));
 
->>>>>>> 412af657fd6c7ca38d71531ea5c0a5c1285e8a53
         while ($required_array = $sth->fetch(PDO::FETCH_ASSOC)) {
             str_replace(' ', '', $required_array['FileName']);
             array_push($cocktail_array, $required_array);
@@ -47,5 +43,56 @@ class model_item_ingredient extends Model
 
         //$cocktail_array = $sth->fetchAll();
         return $cocktail_array;
+    }
+
+    function delete($id)
+    {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $sth = $dbo->prepare("DELETE FROM ingredients WHERE ID = :id");
+        $sth->execute(array(
+            'id' => $id));
+    }
+
+    function push($item)
+    {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $cocktail_array = array();
+        $sth = $dbo->prepare("INSERT INTO ingredients SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Description = :description");
+        $sth->execute(array(
+            'base' => $item["Base"],
+            'strong' => $item['Strong'],
+            'taste' => $item['Taste'],
+            'item' => $item['Name'],
+            'filename' => $item['FileName'],
+            'description' => $item['Description']));
+
+
+        $insert_id = $dbo->lastInsertId();
+        return $insert_id;
+    }
+
+    function save($item) {
+        $dbo = new PDO('mysql:dbname=elgusto_main;host=averkin.tim',
+            'test_user',
+            '',
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+        $sth = $dbo->prepare("UPDATE ingredients SET Base = :base, Strong = :strong, Taste = :taste, Name = :item, FileName = :filename, Description = :description WHERE ID =:id");
+        $sth->execute(array(
+            'base' => $item["Base"],
+            'strong' => $item['Strong'],
+            'taste' => $item['Taste'],
+            'item' => $item['Name'],
+            'filename' => $item['FileName'],
+            'description' => $item['Description'],
+            'id' => $item['ID']));
     }
 }

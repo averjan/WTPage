@@ -1,0 +1,34 @@
+<section class="search-back">
+    <div id="main">
+        <div class="search-result add-item-back">
+            <form id="this-form" method="post" action="/add_ingredient/create">
+                <input id="add-cocktail-name" type="text" placeholder="Name" name="Name" value="">
+                <input id="add-cocktail-filename" type="text" placeholder="File name" name="FileName" value="">
+                <input id="add-cocktail-description" type="text" placeholder="Description" name="Description" value="">
+
+                <select id="add-cocktail-strong" class="filter" name="Strong">
+                    <option value="" selected>Крепость</option>
+                    <option value="Without">Безалкогольные</option>
+                    <option value="NonStrong">Слабоалкогольные</option>
+                    <option value="Strong">Крепкоалкогольные</option>
+                </select>
+                <select id="add-cocktail-base" class="filter" name="Base">
+                    <option value="" selected>Основа</option>
+                    <option value="Absent">На абсенте</option>
+                    <option value="Vodka">На водке</option>
+                    <option value="Vine">На вине</option>
+                </select>
+                <select id="add-cocktail-taste" class="filter" name="Taste">
+                    <option value="" selected>Вкус</option>
+                    <option value="Bitter">Горькие</option>
+                    <option value="Sour">Кислые</option>
+                    <option value="Coffee">Кофейные</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Salty">Salty</option>
+                </select>
+
+                <input id="form-create-cocktail" type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+</section>

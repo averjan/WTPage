@@ -1,0 +1,60 @@
+<section class="search-back">
+    <div id="main">
+        <div class="search-result add-item-back">
+            <form id="this-form" method="post" action="/edit_ingredient/save">
+                <input id="add-cocktail-name" type="text" placeholder="Name" name="Name" value="<?=$data['Name']; ?>">
+                <input id="add-cocktail-filename" type="text" placeholder="File name" name="FileName" value="<?=$data['FileName']; ?>">
+                <input id="add-cocktail-description" type="text" placeholder="Description" name="Description" value="<?=$data['Description']; ?>">
+
+                <select id="add-cocktail-strong" class="filter" name="Strong">
+                    <option value="" selected>Крепость</option>
+                    <option value="Without">Безалкогольные</option>
+                    <option value="NonStrong">Слабоалкогольные</option>
+                    <option value="Strong">Крепкоалкогольные</option>
+                </select>
+                <select id="add-cocktail-base" class="filter" name="Base">
+                    <option value="" selected>Основа</option>
+                    <option value="Absent">На абсенте</option>
+                    <option value="Vodka">На водке</option>
+                    <option value="Vine">На вине</option>
+                </select>
+                <select id="add-cocktail-taste" class="filter" name="Taste">
+                    <option value="" selected>Вкус</option>
+                    <option value="Bitter">Горькие</option>
+                    <option value="Sour">Кислые</option>
+                    <option value="Coffee">Кофейные</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Salty">Salty</option>
+                </select>
+
+                <input name="ID" type="hidden" value="<?=$data['ID']; ?>" />
+                <input id="form-create-cocktail" type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    let def_strong = "<?=$data['Strong']; ?>".trim()
+    let def_taste = "<?=$data['Taste']; ?>".trim()
+    let def_base = "<?=$data['Base']; ?>".trim()
+
+</script>
+
+<script>
+
+    function setOption(item, op) {
+        for (let el of item.options) {
+            if (el.value === op) {
+                el.selected = true
+                break
+            }
+        }
+    }
+
+    setOption(document.getElementById('add-cocktail-strong'), def_strong)
+    setOption(document.getElementById('add-cocktail-taste'), def_taste)
+    setOption(document.getElementById('add-cocktail-base'), def_base)
+
+</script>
