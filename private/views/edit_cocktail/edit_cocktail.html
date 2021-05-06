@@ -4,7 +4,7 @@
             <form id="this-form" method="post" action="/edit_cocktail/save">
                 <input id="add-cocktail-name" type="text" placeholder="Name" name="Name" value="<?=$data['is']['Name']; ?>">
                 <input id="add-cocktail-filename" type="text" placeholder="File name" name="FileName" value="<?=$data['is']['FileName']; ?>">
-                <input id="add-cocktail-description" type="text" placeholder="Description" name="Description" value="<?=$data['is']['Description']; ?>">
+                <textarea id="add-cocktail-description" type="text" placeholder="Description" name="Description"><?=$data['is']['Description']; ?></textarea>
                 <input id="add-cocktail-steps" type="text" placeholder="Steps" name="Steps" value="<?=implode('.', $data['is']['Steps']); ?>">
 
                 <select id="add-cocktail-strong" class="filter" name="Strong">
@@ -35,12 +35,12 @@
                 </button>
             </form>
 
-            <div style="width: 100%">
+            <div id="ingredient-edit" style="width: 100%">
                 <input id="enter-count" type="text" placeholder="Count"/>
                 <input id="enter-measure" type="text" placeholder="Measure"/>
 
-                <div style="overflow: scroll; width: auto; height: 200px;">
-                    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+                <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+                <div class="list-container-ingredients" style="overflow: scroll; width: auto; height: 200px;">
 
                     <ul id="myUl">
                         <?php foreach($data["to"] as $item): ?>

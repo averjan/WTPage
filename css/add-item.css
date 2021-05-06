@@ -6,3 +6,68 @@
     justify-content: space-around;
     background: white;
 }
+
+#this-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#this-form input, #this-form select, #this-form textarea {
+    margin: 10px;
+}
+
+#this-form select {
+    width: 300px;
+}
+
+#myUl {
+    list-style: none;
+    padding: 5px;
+}
+
+#myUl li {
+    padding: 5px;
+    border: 1px solid black;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.list-container-ingredients {
+    overflow: scroll;
+    overflow-x: scroll;
+    width: auto;
+    height: 200px;
+    overflow-x: hidden;
+    border-bottom: black 1px solid;
+}
+
+#ingredient-edit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#ingredient-edit input {
+    width: 300px;
+}
+
+#myInput {
+    width: 500px;
+}
+
+#current-ingredients {
+    list-style: none;
+    padding: 0;
+}
+
+#current-ingredients li {
+    padding: 5px;
+    border: 1px solid darkgoldenrod;
+    margin: 4px;
+    cursor: pointer;
+}
+
+#current-ingredients li p {
+    padding-left: 20px;
+}

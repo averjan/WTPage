@@ -38,9 +38,13 @@ class controller_edit_cocktail extends Controller
 
             foreach ($data['is']['Recipe'] as $item) {
                 //$data['to'] = array_diff($data['to'], $data['is']['Recipe']);
-                $key = array_search($item['ingredient'], $data['to'], false);
-                if ($key !== false) {
-                    unset($data['to'][$key]);
+                //$key = array_search($item['ingredient'], $data['to'], false);
+                //print_r($data['to']);
+                $i = 0;
+                foreach ($data['to'] as $el) {
+                    if ($item['ingredient']['ID'] == $el['ID']) {
+                        unset($data['to'][$i]);
+                    }
                 }
             }
 

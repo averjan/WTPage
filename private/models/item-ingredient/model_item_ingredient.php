@@ -10,7 +10,7 @@ class model_item_ingredient extends Model
             '',
             array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-        $cocktail_array = array();
+        //$cocktail_array = array();
         $sth = $dbo->prepare("SELECT * FROM ingredients");
         $sth->execute();
         /*
@@ -19,9 +19,9 @@ class model_item_ingredient extends Model
             array_push($cocktail_array, $required_array);
         }
         */
-        $cocktail_array = $sth->fetchAll();
-        return $cocktail_array;
-
+        //$cocktail_array = $sth->fetchAll();
+        //return $cocktail_array;
+        return $sth->fetchAll();
     }
 
     public function get_data_filtered(array $filters): ?array

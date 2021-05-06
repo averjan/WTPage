@@ -42,6 +42,23 @@ html, body {
 .login-back a {
     color: darkgoldenrod;
     text-decoration: none;
+    margin: 20px 0;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.3);
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
 }
 .login-btn
 {
@@ -60,8 +77,22 @@ html, body {
 }
 .login-intro
 {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.login-intro h1 {
+    text-align: center;
+}
+.login-intro form input {
+    cursor: pointer;
+}
+
+.login-intro form input:hover {
+    box-shadow: none;
+}
+
 input {
 
 }
