@@ -6,6 +6,12 @@
     flex-wrap: wrap;
     border-radius: 20px;
     justify-content: center;
+
+    flex-direction: column;
+}
+
+.item-content div {
+    box-sizing: border-box;
 }
 
 .item-tag {
@@ -139,3 +145,23 @@
         width: 100%;
     }
 }
+
+.edit-reference, .delete-reference {
+    text-decoration: none;
+    color: darkgoldenrod;
+    font-family: fangsong;
+}
+
+.delete-reference {
+    color: darkred;
+}
+
+.edit-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-btn-container a, .edit-btn-container form{
+    margin: 0 5px;
+}
+

@@ -24,6 +24,7 @@ function addIngredient(e) {
     console.log(temp.firstElementChild)
     chosenList.insertAdjacentHTML('beforeend', temp.firstElementChild.outerHTML);
     chosenItem.remove()
+    chosenItem = null
     //item.remove(item.value)
 }
 

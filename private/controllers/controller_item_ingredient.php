@@ -53,6 +53,9 @@ class controller_item_ingredient extends Controller
             $this->model->delete($this->id);
             header('Location: /ingredients');
         }
+        else {
+            header('Location: /signin');
+        }
     }
 
     private function check_authorised()

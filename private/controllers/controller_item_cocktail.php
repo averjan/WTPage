@@ -45,9 +45,14 @@ class controller_item_cocktail extends Controller
 
     function action_delete()
     {
+        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $this->id = intval($routes[3]);
         if ($this->check_authorised()) {
-            $this->model->delete($_GET['id']);
+            $this->model->delete($this->id);
             header('Location: /cocktails');
+        }
+        else {
+            header('Location: /signin');
         }
     }
 

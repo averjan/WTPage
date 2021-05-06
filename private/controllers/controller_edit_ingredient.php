@@ -37,7 +37,8 @@ class controller_edit_ingredient extends Controller
             $this->view->generate("/edit_ingredient/edit_ingredient.php", $data);
         }
         else {
-            header("HTTP/1.1 401 Unauthorized"); exit;
+            //header("HTTP/1.1 401 Unauthorized"); exit;
+            header("Location: /signin");
         }
     }
 

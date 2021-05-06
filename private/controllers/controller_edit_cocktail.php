@@ -51,7 +51,8 @@ class controller_edit_cocktail extends Controller
             $this->view->generate("/edit_cocktail/edit_cocktail.php", $data);
         }
         else {
-            header("HTTP/1.1 401 Unauthorized"); exit;
+            //header("HTTP/1.1 401 Unauthorized"); exit;
+            header("Location: /signin"); exit;
         }
     }
 

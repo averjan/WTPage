@@ -50,15 +50,19 @@
                 </ul>
             </div>
 
-            <div>
+            <div class="edit-btn-container">
+                <!--
                 <form method="get" action="/edit_cocktail/index/<?=$data['ID']; ?>">
                     <input type="hidden" name="id" value="<?=$data['ID']; ?>" />
-                    <input type="submit" value="Edit" />
+                    <input class="edit-reference" type="submit" value="Edit" />
                 </form>
-                <form method="get" action="/item_cocktail/delete/" aria-disabled="true"/>
-                    <input type="hidden" name="id" value="<?=$data['ID']; ?>" disabled/>
-                    <input type="submit" value="Delete" disabled/>
+                <form method="get" action="/item_cocktail/delete/<?=$data['ID']; ?>"/>
+                    <input type="hidden" name="id" value="<?=$data['ID']; ?>"/>
+                    <input class="delete-reference" type="submit" value="Delete"/>
                 </form>
+                -->
+                <a class="edit-reference" href="/edit_cocktail/index/<?=$data['ID']; ?>">Edit</a>
+                <a class="delete-reference" href="/item_cocktail/delete/<?=$data['ID']; ?>">Delete</a>
             </div>
         </div>
     </div>

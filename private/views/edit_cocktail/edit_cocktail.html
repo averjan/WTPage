@@ -39,14 +39,17 @@
                 <input id="enter-count" type="text" placeholder="Count"/>
                 <input id="enter-measure" type="text" placeholder="Measure"/>
 
-                <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
-                <div class="list-container-ingredients" style="overflow: scroll; width: auto; height: 200px;">
-
+                <div > <!--class="list-container-ingredients"-->
+                    <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
                     <ul id="myUl">
                         <?php foreach($data["to"] as $item): ?>
                         <li onclick="chooseItem(this)" value="<?=$item['ID']; ?>"><?=$item['Name']; ?></li>
                         <?php endforeach; ?>
                     </ul>
+                </div>
+
+                <div class="button-container">
+                    <input id="add-item-edit" type="button" onclick="addIngredient(this)" value="+"/>
                 </div>
 
                 <ul id="current-ingredients">
@@ -60,8 +63,9 @@
                     <?php endforeach; ?>
                 </ul>
 
-                <input type="button" onclick="addIngredient(this)" value="Add"/>
             </div>
+
+            <label for="form-create-cocktail" id="form-create-cocktail-label">Save</label>
         </div>
     </div>
 </section>
