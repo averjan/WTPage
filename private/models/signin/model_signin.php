@@ -26,7 +26,6 @@ class model_signin extends Model
 
         if($user['password'] === md5(md5($password)))
         {
-            // Генерируем случайное число и шифруем его
             $hash = md5($this->generateCode(10));
 
 
@@ -36,18 +35,12 @@ class model_signin extends Model
             $sth = $dbo->prepare("UPDATE `users` SET `hash` = :hash, `ip` = INET_ATON(:ip) WHERE `id` = :id");
             $sth->execute(array('hash' => $hash, 'ip' => $insip, 'id' => $user['id']));
 
-            // Ставим куки
             setcookie("id", $user['id'], time()+60*60*24*30, "/");
-            setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
+            setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true);
 
-            // Переадресовываем браузер на страницу проверки нашего скрипта
-            //header("Location: check.php"); exit();
             return true;
         }
-        else
-        {
-            print "Вы ввели неправильный логин/пароль";
-            return false;
-        }
+
+        return false;
     }
 }

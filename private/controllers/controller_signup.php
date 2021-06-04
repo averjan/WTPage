@@ -37,9 +37,9 @@ class controller_signup extends Controller
                 $_POST["password"]))
             {
                 $this->sendMail($mail, $_POST["username"]);
-                $work_file = fopen(root . "\src\mail.txt", "a+");
-                fwrite($work_file, $_POST["username"] . " " . $match[1] . "\n");
-                fclose($work_file);
+                //$work_file = fopen(root . "\src\mail.txt", "a+");
+                //fwrite($work_file, $_POST["username"] . " " . $match[1] . "\n");
+                //fclose($work_file);
                 $this->view->generate("/home/home.php");
                 return;
             }
@@ -62,6 +62,7 @@ class controller_signup extends Controller
         try {
             //Server settings
             $mail->isSMTP();
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'courseworkksis@gmail.com';

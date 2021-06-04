@@ -16,6 +16,7 @@ class controller_home extends controller
             $this->view->generate("\home\home.php");
         }
         else {
+            //$this->view->generate("\home\home.php");
             header("HTTP/1.1 401 Unauthorized"); exit;
         }
     }

@@ -43,7 +43,7 @@ class model_signup extends Model
         if(count($err) == 0)
         {
 
-            // Убераем лишние пробелы и делаем двойное хеширование
+            // password_hash($password,  PASSWORD_BCRYPT)
             $password = md5(md5(trim($password)));
 
             $sth = $dbo->prepare("INSERT INTO `users` SET `login` = :login, `password` = :password, `email` = :email");

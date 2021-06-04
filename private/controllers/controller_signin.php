@@ -22,5 +22,7 @@ class controller_signin extends controller
             //$this->view->generate("/home/home.php");
             header('Location: /home');
         }
+
+        $this->view->generate("/signin/signin.php");
     }
 }
